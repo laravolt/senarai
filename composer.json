@@ -1,0 +1,44 @@
+{
+    "name": "laravolt/senarai",
+    "description": "add your item",
+    "keywords": [
+        "laravolt",
+        "senarai"
+    ],
+    "homepage": "https://github.com/laravolt/senarai",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ramadani",
+            "email": "email.ramadani@gmail.com",
+            "homepage": "github.com/ramadani",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php" : ">=5.5.0",
+        "illuminate/support": "~5.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit" : "4.*",
+        "scrutinizer/ocular": "~1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Laravolt\\Senarai\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Laravolt\\Senarai\\Test\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
