@@ -13,16 +13,16 @@ $ composer require laravolt/senarai
 Tambahkan ServiceProvider ke dalam array providers di dalam file config/app.php
 
 ``` php
-Laravolt\Packer\PackerServiceProvider::class
+Laravolt\Senarai\ServiceProvider::class
 ```
 
-Kamu dapat menggunakan facade untuk mempersingkat penulisan. Tambahkan ini ke array aliases di dalam file config/app.php
+Kamu dapat menggunakan facade untuk mempersingkat penulisan. Tambahkan ke array aliases di dalam file config/app.php
 
 ``` php
 'Senarai' => Laravolt\Senarai\Facade::class
 ```
 
-## Configuration
+## Konfigurasi
 
 ``` bash
 php artisan vendor:publish
@@ -54,9 +54,15 @@ class Product extends Model
 }
 ```
 
-## Usage
+## Penggunaan
 
-### Menambah item ke dalam daftar
+``` php
+Senarai::add($obj, 'write-your-list');
+Senarai::remove($obj, 'write-your-list');
+Senarai::lists('write-your-list');
+```
+
+#### Menambah item ke dalam daftar
 
 ``` php
 // following
@@ -68,7 +74,7 @@ $product = Product::find(1);
 Senarai::add($product, 'wishlist');
 ```
 
-### Menghapus item didalam daftar
+#### Menghapus item didalam daftar
 
 ``` php
 // hapus following
@@ -80,10 +86,19 @@ $product = Product::find(1);
 Senarai::remove($product, 'wishlist');
 ```
 
-### Mendapatkan daftar item didalam list
+#### Mendapatkan daftar item didalam list
 
 ``` php
-$following = Senarai::lists(auth()->user(), 'follow');
+$following = Senarai::lists(User::find(1), 'follow');
 
-$wishlist = Senarai::lists(User::find(1), 'wishlist');
+$wishlist = Senarai::lists(auth()->user(), 'wishlist');
+```
+
+#### Mendapatkan daftar yang menambahkan item
+
+``` php
+$user = User::find($request->input('id'));
+foreach($user->containers as $item){
+    echo $item->user_id;
+}
 ```
