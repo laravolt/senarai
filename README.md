@@ -1,6 +1,6 @@
 # senarai
 
-Add item to your list
+Tambah item ke dalam daftar mu
 
 ## Install
 
