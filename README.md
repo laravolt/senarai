@@ -59,7 +59,7 @@ class Product extends Model
 ``` php
 Senarai::add($obj, 'write-your-list');
 Senarai::remove($obj, 'write-your-list');
-Senarai::lists('write-your-list');
+Senarai::lists($userObj, 'write-your-list');
 ```
 
 #### Menambah item ke dalam daftar
